@@ -258,6 +258,11 @@
             img.img-fluid(src='@/assets/curso/tema3/21.svg', style="max-width:486px", alt="" ).mx-auto.mx-lg-0.ms-lg-auto.mb-4.mb-lg-0
         
 
+    .bg-full-width.border-top.actividad.bg-color-actividad
+      .p-4.p-md-5
+        #Actividad                
+          <Actividad :cuestionario="cuestionario"/>
+
     .bg-full-width.border-top.color-primario
       .p-4.p-md-5
         h2(data-aos="fade-left") MATERIAL COMPLEMENTARIO
@@ -288,8 +293,185 @@
 </template>
 
 <script>
+import Actividad from '@/components/actividad/Actividad.vue'
 export default {
   name: 'Tema3',
+  components: {
+    Actividad,
+  },
+  data() {
+    return {
+      cuestionario: {
+        tema: 'Herramientas colaborativas para la construcción de paz',
+        titulo: 'Ponte a prueba',
+        introduccion:
+          'Demuestra lo que aprendiste en esta unidad y pon a prueba tus conocimientos.',
+        barajarPreguntas: true,
+        preguntas: [
+          {
+            id: 1,
+            texto:
+              '¿Cuál es el principal objetivo del Sistema de Gestión de Seguridad y Salud en el Trabajo (SGSST) en instituciones educativas?',
+            imagen: '',
+            barajarRespuestas: true,
+            opciones: [
+              {
+                id: 'a',
+                texto: 'Controlar la asistencia del personal',
+                esCorrecta: false,
+              },
+              {
+                id: 'b',
+                texto:
+                  'Garantizar ambientes seguros y saludables para la comunidad educativa ',
+                esCorrecta: true,
+              },
+              {
+                id: 'c',
+                texto: 'Vigilar el cumplimiento de los horarios escolares',
+                esCorrecta: false,
+              },
+              {
+                id: 'd',
+                texto: 'Administrar el presupuesto institucional',
+                esCorrecta: false,
+              },
+            ],
+            mensaje_correcto: '¡Muy bien! Ha acertado la respuesta.',
+            mensaje_incorrecto: 'Lo sentimos, su respuesta no es la correcta.',
+          },
+          {
+            id: 2,
+            texto:
+              '¿Qué ley en Colombia establece la obligación de implementar el SGSST?',
+            imagen: '',
+            barajarRespuestas: true,
+            opciones: [
+              {
+                id: 'a',
+                texto: 'Ley 1098 de 2006',
+                esCorrecta: false,
+              },
+              {
+                id: 'b',
+                texto: 'Decreto 1072 de 2015',
+                esCorrecta: false,
+              },
+              {
+                id: 'c',
+                texto: 'Ley 1523 de 2012',
+                esCorrecta: false,
+              },
+              {
+                id: 'd',
+                texto: 'Ley 1562 de 2012 ',
+                esCorrecta: true,
+              },
+            ],
+            mensaje_correcto: '¡Muy bien! Ha acertado la respuesta.',
+            mensaje_incorrecto: 'Lo sentimos, su respuesta no es la correcta.',
+          },
+          {
+            id: 3,
+            texto:
+              '¿Cuál de los siguientes es un ejemplo de riesgo ergonómico para los cuidadores y docentes?',
+            imagen: '',
+            barajarRespuestas: true,
+            opciones: [
+              {
+                id: 'a',
+                texto: 'Uso de productos químicos',
+                esCorrecta: false,
+              },
+              {
+                id: 'b',
+                texto: 'Exposición a enfermedades contagiosas',
+                esCorrecta: false,
+              },
+              {
+                id: 'c',
+                texto: 'Movimientos repetitivos al cargar niños ',
+                esCorrecta: true,
+              },
+              {
+                id: 'd',
+                texto: 'Falta de ventilación en las aulas',
+                esCorrecta: false,
+              },
+            ],
+            mensaje_correcto: '¡Muy bien! Ha acertado la respuesta.',
+            mensaje_incorrecto: 'Lo sentimos, su respuesta no es la correcta.',
+          },
+          {
+            id: 4,
+            texto:
+              '¿Qué elemento es fundamental para prevenir accidentes con materiales tóxicos en laboratorios escolares?',
+            imagen: '',
+            barajarRespuestas: true,
+            opciones: [
+              {
+                id: 'a',
+                texto: 'Usar pisos antideslizantes',
+                esCorrecta: false,
+              },
+              {
+                id: 'b',
+                texto: 'Tener buena iluminación',
+                esCorrecta: false,
+              },
+              {
+                id: 'c',
+                texto: 'Capacitar al personal y señalizar adecuadamente ',
+                esCorrecta: true,
+              },
+              {
+                id: 'd',
+                texto: 'Evitar el uso de materiales escolares',
+                esCorrecta: false,
+              },
+            ],
+            mensaje_correcto: '¡Muy bien! Ha acertado la respuesta.',
+            mensaje_incorrecto: 'Lo sentimos, su respuesta no es la correcta.',
+          },
+          {
+            id: 5,
+            texto:
+              '¿Cuál de los siguientes espacios presenta riesgos de contaminación biológica y quemaduras?',
+            imagen: '',
+            barajarRespuestas: true,
+            opciones: [
+              {
+                id: 'a',
+                texto: 'Biblioteca',
+                esCorrecta: false,
+              },
+              {
+                id: 'b',
+                texto: 'Cocina y comedor escolar ',
+                esCorrecta: true,
+              },
+              {
+                id: 'c',
+                texto: 'Aula de arte',
+                esCorrecta: false,
+              },
+              {
+                id: 'd',
+                texto: 'Sala de informática',
+                esCorrecta: false,
+              },
+            ],
+            mensaje_correcto: '¡Muy bien! Ha acertado la respuesta.',
+            mensaje_incorrecto: 'Lo sentimos, su respuesta no es la correcta.',
+          },
+        ],
+        mensaje_final_aprobado:
+          '¡Felicidades! Has superado la prueba con éxito.',
+        mensaje_final_reprobado:
+          'Te recomendamos repasar nuevamente la unidad para reforzar los conceptos clave antes de volver a intentarlo.',
+      },
+    }
+  },
   mounted() {
     this.$nextTick(() => {
       this.$aosRefresh()
@@ -298,4 +480,7 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.bg-color-actividad
+  background-color: #EBF1F5
+</style>
